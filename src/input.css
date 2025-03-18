@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+.glitch {
+    position: relative;
+    display: inline-block;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 3rem;
+    color: white;
+    animation: glitch-skew 1s infinite alternate;
+}
+
+/* Duplicamos el texto en capas para efectos de distorsión */
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: black;
+    clip: rect(0, 0, 0, 0);
+}
+
+/* Efecto RGB en las capas */
+.glitch::before {
+    left: 2px;
+    text-shadow: -3px 0 red;
+    animation: glitch-animation 0.8s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: 3px 0 blue;
+    animation: glitch-animation 1s infinite linear alternate-reverse;
+}
+
+/* Desplazamiento aleatorio */
+@keyframes glitch-animation {
+    0% { clip: rect(20px, 9999px, 85px, 0); transform: skew(0.5deg); }
+    10% { clip: rect(10px, 9999px, 75px, 0); transform: skew(1deg); }
+    20% { clip: rect(30px, 9999px, 95px, 0); transform: skew(-0.5deg); }
+    30% { clip: rect(40px, 9999px, 65px, 0); transform: skew(1.5deg); }
+    40% { clip: rect(50px, 9999px, 55px, 0); transform: skew(-1deg); }
+    50% { clip: rect(60px, 9999px, 45px, 0); transform: skew(0.5deg); }
+    60% { clip: rect(70px, 9999px, 35px, 0); transform: skew(-1.5deg); }
+    70% { clip: rect(80px, 9999px, 25px, 0); transform: skew(1deg); }
+    80% { clip: rect(90px, 9999px, 15px, 0); transform: skew(-0.5deg); }
+    90% { clip: rect(100px, 9999px, 5px, 0); transform: skew(1deg); }
+    100% { clip: rect(110px, 9999px, 95px, 0); transform: skew(-1deg); }
+}
+
+/* Pequeño skew aleatorio en el texto principal */
+@keyframes glitch-skew {
+    0% { transform: skew(0deg); }
+    50% { transform: skew(2deg); }
+    100% { transform: skew(-2deg); }
+}
+
+.glitch-text {
+    position: relative;
+    display: inline-block;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    font-weight: bold;
+    animation: glitch-skew 1.5s infinite alternate;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: black;
+    clip: rect(0, 0, 0, 0);
+}
+
+.glitch-text::before {
+    left: 2px;
+    text-shadow: -3px 0 red;
+    animation: glitch-animation 0.7s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+    left: -2px;
+    text-shadow: 3px 0 blue;
+    animation: glitch-animation 0.9s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-animation {
+    0% { clip: rect(10px, 9999px, 40px, 0); transform: skew(1deg); }
+    25% { clip: rect(5px, 9999px, 35px, 0); transform: skew(-2deg); }
+    50% { clip: rect(15px, 9999px, 45px, 0); transform: skew(0deg); }
+    75% { clip: rect(10px, 9999px, 30px, 0); transform: skew(2deg); }
+    100% { clip: rect(5px, 9999px, 40px, 0); transform: skew(-1deg); }
+}
+
+@keyframes glitch-skew {
+    0% { transform: skew(0deg); }
+    50% { transform: skew(1deg); }
+    100% { transform: skew(-1deg); }
+}
+
+/* Cursor de tipeo (efecto máquina de escribir) */
+.typing::after {
+    content: "|";
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Glitch en palabras clave */
+.glitch-word {
+    display: inline-block;
+    animation: glitch-animation 1.5s infinite alternate;
+    color: red;
+}
+
+@keyframes glitch-animation {
+    0% { text-shadow: -2px 0 red, 2px 0 blue; }
+    25% { text-shadow: -3px 1px red, 3px -1px blue; }
+    50% { text-shadow: 2px -2px red, -2px 2px blue; }
+    75% { text-shadow: -1px -3px red, 1px 3px blue; }
+    100% { text-shadow: 3px 3px red, -3px -3px blue; }
+}
+
+/* Cursor efecto "typing" */
+.typing-instructions::after {
+    content: "|";
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.typing::after {
+    content: "|";
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Estilo de texto tipo archivo filtrado */
+#prologue-container {
+    font-family: 'Courier New', Courier, monospace;
+    background: rgba(255, 0, 0, 0.05);
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+/* Glitch en palabras clave */
+.glitch-word {
+    display: inline-block;
+    animation: glitch-animation 1.5s infinite alternate;
+    color: red;
+}
+
+@keyframes glitch-animation {
+    0% { text-shadow: -2px 0 red, 2px 0 blue; }
+    25% { text-shadow: -3px 1px red, 3px -1px blue; }
+    50% { text-shadow: 2px -2px red, -2px 2px blue; }
+    75% { text-shadow: -1px -3px red, 1px 3px blue; }
+    100% { text-shadow: 3px 3px red, -3px -3px blue; }
+}
+
+/* Texto tachado (para cuando el "escritor" borra algo) */
+.strikethrough {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
