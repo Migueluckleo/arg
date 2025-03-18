@@ -160,3 +160,14 @@ document.addEventListener("DOMContentLoaded", () => {
         isTyping = false;
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const video = document.getElementById("hero-video");
+
+    // Si el navegador bloquea la reproducción, la activa con interacción
+    video.play().catch(() => {
+        document.body.addEventListener("touchstart", () => {
+            video.play();
+        }, { once: true });
+    });
+});
